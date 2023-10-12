@@ -39,6 +39,15 @@ public class EmployeeTest {
     }
 
     @Test
+    void testIsWorkEnough(){
+        assertFalse(emp1.isWorkEnough(5));
+        emp1.addWorkTime(10.0);
+        assertTrue(emp1.isWorkEnough(15));
+        emp1.addWorkTime(10.0);
+        assertTrue(emp1.isWorkEnough(-1));
+        assertTrue(emp1.isWorkEnough(5));
+    }
+    @Test
     void testAddMultipleWorkTime() {
         assertFalse(emp1.isWorkEnough(5));
         emp1.addWorkTime(7.0);
