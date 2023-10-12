@@ -58,7 +58,7 @@ public class ScheduleTest {
         assertEquals(0,testSchedule.countShifts(1,1,0));
         assertEquals(1,testSchedule.countShifts(2,1,0));
         assertEquals(1,testSchedule.countShifts(1,3,0));
-        assertEquals(0,testSchedule.countShifts(1,3,1));
+        assertEquals(0,testSchedule.countShifts(1,4,1));
     }
 
     @Test
@@ -73,6 +73,7 @@ public class ScheduleTest {
         assertEquals(2,testSchedule.countShifts(0,1,1));
         assertEquals(1,testSchedule.countShifts(0,1,2));
         assertEquals(1,testSchedule.countShifts(0,1,3));
+        assertEquals(0,testSchedule.countShifts(1,4,1));
 
     }
 

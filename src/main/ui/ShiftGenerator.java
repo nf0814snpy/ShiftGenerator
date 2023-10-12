@@ -18,7 +18,6 @@ public class ShiftGenerator {
         assignMemberToList(listOfEmployee,sa,2);
         createShiftForManagers(managerAndSuper,result);
         createShiftForStaffs(sa,result);
-
         return result;
     }
 
