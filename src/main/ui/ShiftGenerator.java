@@ -1,10 +1,15 @@
-package model;
+package ui;
+
+import model.AvailableDay;
+import model.Employee;
+import model.Schedule;
+import model.Shift;
 
 import java.util.*;
 
 public class ShiftGenerator {
 
-    public Schedule shiftGen(Date startDate,List<Employee> listOfEmployee) {
+    public Schedule shiftGen(Date startDate, List<Employee> listOfEmployee) {
         Schedule result = new Schedule();
         List<Employee> managerAndSuper = new ArrayList<Employee>();
         List<Employee> sa = new ArrayList<Employee>();
@@ -24,7 +29,7 @@ public class ShiftGenerator {
         return false;
     }
 
-    private double getShiftStartNum(int shiftNum) {
+    public double getShiftStartNum(int shiftNum) {
         switch (shiftNum) {
             case 1:
                 return 8.0;
