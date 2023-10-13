@@ -7,14 +7,20 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Employee> empList = empGenerate();
-        Schedule shiftSchedule = new Schedule();
-        ShiftGenerator generator = new ShiftGenerator();
-        if (generator.shiftGen(empList,shiftSchedule)) {
-            System.out.println("Assign shift correctly!");
-            printSchedule(shiftSchedule);
-        } else {
-            System.out.println("Shift Assign Fail! Hire more people.");
+        System.out.println("Generate and Print shift? Press Y or N");
+
+        Scanner myObj = new Scanner(System.in);
+        String answer = myObj.nextLine();
+        if (answer.equals("Y")) {
+            List<Employee> empList = empGenerate();
+            Schedule shiftSchedule = new Schedule();
+            ShiftGenerator generator = new ShiftGenerator();
+            if (generator.shiftGen(empList, shiftSchedule)) {
+                System.out.println("Assign shift correctly!");
+                printSchedule(shiftSchedule);
+            } else {
+                System.out.println("Shift Assign Fail! Hire more people.");
+            }
         }
     }
 
