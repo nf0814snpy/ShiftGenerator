@@ -9,7 +9,7 @@ public class EmployeeTest {
 
     @BeforeEach
     void runBefore(){
-        emp1 = new Employee("Nana Fujita",new Position("Service Assistant"),20.0);
+        emp1 = new Employee("Nana Fujita",new Position("Service Assistant"),20.0,1);
 
     }
 
@@ -17,7 +17,7 @@ public class EmployeeTest {
     void testConstructor() {
         assertEquals("Nana Fujita", emp1.getName());
         assertEquals(2, emp1.getPositionID());
-        assertEquals(20.0,emp1.idealWorkTime());
+        assertEquals(20.0,emp1.getIdealWorkTime());
         assertEquals(0.0,emp1.getTotalWorkTime());
         assertEquals(0,emp1.getAvailability().getListAvailability().size());
     }
@@ -30,11 +30,16 @@ public class EmployeeTest {
     }
 
     @Test
+    void testGetID() {
+        assertEquals(1,emp1.getID());
+    }
+
+    @Test
     void testAddSingleWorkTimeBoundary() {
         assertFalse(emp1.isWorkEnough(0));
         emp1.addWorkTime(20.0);
         assertEquals(20.0,emp1.getTotalWorkTime());
-        assertEquals(20.0,emp1.idealWorkTime());
+        assertEquals(20.0,emp1.getIdealWorkTime());
         assertTrue(emp1.isWorkEnough(0));
     }
 
@@ -53,7 +58,7 @@ public class EmployeeTest {
         emp1.addWorkTime(7.0);
         emp1.addWorkTime(5.0);
         assertEquals(12.0,emp1.getTotalWorkTime());
-        assertEquals(20.0,emp1.idealWorkTime());
+        assertEquals(20.0,emp1.getIdealWorkTime());
         assertFalse(emp1.isWorkEnough(2));
     }
 }

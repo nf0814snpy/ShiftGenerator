@@ -1,11 +1,19 @@
 package model;
 
+
+/* Represent positions for each Employee have. This contains position name and this class assign position ID for each
+    positions
+*/
+
 public class Position {
 
 
     private final String name;
     private int positionID;
 
+    /*
+     * EFFECTS: it stores name value into String name and assign position ID according to the name
+     */
     public Position(String name) {
         this.name = name;
         assignPositionID();

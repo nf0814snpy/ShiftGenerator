@@ -1,5 +1,9 @@
 package model;
 
+/*
+   It contains available information per day.
+   It has dayOfWeek and startTime and endTime of availability for that day
+ */
 public class AvailableDay {
     private String dayOfWeek;
     private double startTime;
@@ -7,7 +11,8 @@ public class AvailableDay {
     private int numOfDay;
 
 
-    //Require: startTime >=8.0 && startTime <= 22.0 && endTime >=8.0 && endTime <=22.0 && startTime<endTime
+    //REQUIRES: startTime >=8.0 && startTime <= 22.0 && endTime >=8.0 && endTime <=22.0 && startTime<endTime
+    //EFFECTS: assign each component and assign numOfDay corresponding to day of week
     public AvailableDay(String dayOfWeek,double startTime, double endTime) {
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
@@ -23,6 +28,11 @@ public class AvailableDay {
         return endTime;
     }
 
+    /*
+     * REQUIRES: date should be "Sunday", "Monday", "Tuesday"... or "Saturday"
+     * MODIFIES: this
+     * EFFECTS: assign numOfDay for corresponds to date
+     */
     public void convertDayStringToNum(String date) {
         if (date == "Sunday") {
             numOfDay = 0;

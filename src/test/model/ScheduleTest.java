@@ -16,11 +16,11 @@ public class ScheduleTest {
     @BeforeEach
     void runBefore(){
         testSchedule = new Schedule();
-        emp1 = new Employee("Nana Fujita",new Position("Manager"),40.0);
-        emp2 = new Employee("Sarah",new Position("Supervisor"),35.0);
-        emp3 = new Employee("Mark",new Position("Service Assistant"),15.0);
-        emp4 = new Employee("Takuya",new Position("TestTest"),20.0);
-        emp5 = new Employee("Tom",new Position("Supervisor"),30.0);
+        emp1 = new Employee("Nana Fujita",new Position("Manager"),40.0,1);
+        emp2 = new Employee("Sarah",new Position("Supervisor"),35.0,2);
+        emp3 = new Employee("Mark",new Position("Service Assistant"),15.0,3);
+        emp4 = new Employee("Takuya",new Position("TestTest"),20.0,4);
+        emp5 = new Employee("Tom",new Position("Supervisor"),30.0,5);
     }
 
     @Test

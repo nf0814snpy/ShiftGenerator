@@ -2,6 +2,9 @@ package model;
 
 import java.util.*;
 
+/*
+  This class has a list of shift for entire week.
+ */
 public class Schedule {
     List<Shift> shift;
 
@@ -17,6 +20,7 @@ public class Schedule {
         return shift;
     }
 
+    //EFFECTS: count how many shift was assigned in the list on the day at the same time for the position ID
     public int countShifts(int date, int shiftNum, int positionID) {
         int count = 0;
         double shiftStart = getShiftStartNum(shiftNum);
@@ -30,6 +34,9 @@ public class Schedule {
         return count;
     }
 
+    /*
+     * EFFECTS: get start time according to shiftNumber
+     */
     private double getShiftStartNum(int shiftNum) {
         switch (shiftNum) {
             case 1:
@@ -43,6 +50,8 @@ public class Schedule {
         }
     }
 
+    //EFFECTS: return whether there is a person who are assigned and has same positionID to the shift
+    // at specific shiftTime
     private boolean isPositionAtThatTime(Shift shift, int positionID, double shiftStart) {
         return shift.getEmployee().getPositionID() == positionID && shift.getStartTime() == shiftStart;
     }
