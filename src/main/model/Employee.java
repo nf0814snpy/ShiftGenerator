@@ -1,11 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 /*
     Employee class has employee's name and Position for the employee,
     and availability for each employee also idealWorkTime per week,
     totalWorkTime per week and contains empID.
  */
-public class Employee {
+public class Employee implements Writable {
     private String name;
     private Position position;
     private Availability availability;
@@ -69,4 +73,27 @@ public class Employee {
     public Availability getAvailability() {
         return availability;
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("positionName", position.getPositionName());
+        json.put("availability", availabilityToJson());
+        json.put("idealWorkTime", idealWorkTime);
+        json.put("empID",empID);
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray availabilityToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (AvailableDay ava : availability.getListAvailability()) {
+            jsonArray.put(ava.toJson());
+        }
+
+        return jsonArray;
+    }
+
 }

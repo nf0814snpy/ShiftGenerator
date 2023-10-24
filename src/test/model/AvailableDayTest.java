@@ -47,5 +47,9 @@ public class AvailableDayTest {
         assertEquals(13.0,ava2.getEndTime());
     }
 
+    @Test
+    void testGetDayOfWeek() {
+        assertEquals("Monday",ava2.getDayOfWeek());
+    }
 
 }

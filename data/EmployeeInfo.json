@@ -1,0 +1,728 @@
+{"employees": [
+    {
+        "positionName": "Manager",
+        "empID": 1,
+        "name": "Nana Fujita",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 30
+    },
+    {
+        "positionName": "Supervisor",
+        "empID": 2,
+        "name": "Jessica Patricia",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 30
+    },
+    {
+        "positionName": "Supervisor",
+        "empID": 3,
+        "name": "Hansel Poe",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 30
+    },
+    {
+        "positionName": "Supervisor",
+        "empID": 4,
+        "name": "Stanley",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 30
+    },
+    {
+        "positionName": "Supervisor",
+        "empID": 5,
+        "name": "Erick",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 30
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 6,
+        "name": "Employee1",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 7,
+        "name": "Employee2",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 8,
+        "name": "Employee3",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 9,
+        "name": "Employee4",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 10,
+        "name": "Employee5",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 11,
+        "name": "Employee6",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 12,
+        "name": "Employee7",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 13,
+        "name": "Employee8",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 14,
+        "name": "Employee9",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 15,
+        "name": "Employee10",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 16,
+        "name": "Employee11",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 17,
+        "name": "Employee12",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
+        "idealWorkTime": 40
+    }
+]}

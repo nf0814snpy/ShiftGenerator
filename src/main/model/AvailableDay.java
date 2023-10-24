@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 /*
    It contains available information per day.
    It has dayOfWeek and startTime and endTime of availability for that day
  */
-public class AvailableDay {
+public class AvailableDay implements Writable {
     private String dayOfWeek;
     private double startTime;
     private double endTime;
@@ -34,24 +38,38 @@ public class AvailableDay {
      * EFFECTS: assign numOfDay for corresponds to date
      */
     public void convertDayStringToNum(String date) {
-        if (date == "Sunday") {
+        if (date.equals("Sunday")) {
             numOfDay = 0;
-        } else if (date == "Monday") {
+        } else if (date.equals("Monday")) {
             numOfDay = 1;
-        } else if (date == "Tuesday") {
+        } else if (date.equals("Tuesday")) {
             numOfDay = 2;
-        } else if (date == "Wednesday") {
+        } else if (date.equals("Wednesday")) {
             numOfDay = 3;
-        } else if (date == "Thursday") {
+        } else if (date.equals("Thursday")) {
             numOfDay = 4;
-        } else if (date == "Friday") {
+        } else if (date.equals("Friday")) {
             numOfDay = 5;
         } else {
             numOfDay = 6;
         }
     }
 
+    public String getDayOfWeek() {
+        return dayOfWeek;
+    }
+
     public int getNumOfDate() {
         return numOfDay;
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("dayOfWeek", dayOfWeek);
+        json.put("startTime", startTime);
+        json.put("endTime", endTime);
+        return json;
+    }
+
 }

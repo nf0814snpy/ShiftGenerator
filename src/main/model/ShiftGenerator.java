@@ -6,16 +6,18 @@ import java.util.*;
 public class ShiftGenerator {
 
     //EFFECTS: generate shift. If it is possible, return true. Otherwise false.
-    public boolean shiftGen(List<Employee> listOfEmployee,Schedule result) {
-        List<Employee> managerAndSuper = new ArrayList<Employee>();
-        List<Employee> sa = new ArrayList<Employee>();
+    public boolean shiftGen(EmployeeList listOfEmployee,Schedule result) {
+        EmployeeList managerAndSuper = new EmployeeList();
+        EmployeeList sa = new EmployeeList();
         assignMemberToList(listOfEmployee,managerAndSuper,0);
         assignMemberToList(listOfEmployee,managerAndSuper,1);
         assignMemberToList(listOfEmployee,sa,2);
         if (!createShiftForManagers(managerAndSuper,result)) {
+            System.out.println("Fail manager.");
             return false;
         }
         if (!createShiftForStaffs(sa,result)) {
+            System.out.println("Fail staff.");
             return false;
         }
         return true;
@@ -87,8 +89,8 @@ public class ShiftGenerator {
     //MODIFIES: result, emp, empID
     //EFFECTS: assign shiftNum1 to the employee in the list if it is possible and add the shift
     //to the schedule
-    public boolean assignShift1(List<Employee> list, Schedule result, IntegerWrapper empID, int date) {
-        for (Employee emp : list) {
+    public boolean assignShift1(EmployeeList list, Schedule result, IntegerWrapper empID, int date) {
+        for (Employee emp : list.getListEmployee()) {
             if (emp.getID() == empID.getValue()) {
                 continue;
             }
@@ -106,8 +108,8 @@ public class ShiftGenerator {
     //MODIFIES: result, list, empID
     //EFFECTS: assign shiftNum3 to the employee in the list if it is possible and add the shift
     //to the schedule
-    public boolean assignShift3(List<Employee> list, Schedule result, IntegerWrapper empID, int i) {
-        for (Employee emp : list) {
+    public boolean assignShift3(EmployeeList list, Schedule result, IntegerWrapper empID, int i) {
+        for (Employee emp : list.getListEmployee()) {
             if (empID.getValue() == emp.getID()) {
                 continue;
             }
@@ -125,8 +127,7 @@ public class ShiftGenerator {
     //MODIFIES: list, schedule
     //EFFECTS: create shift for managers. It helps assign at least one
     //manager or supervisor for each time
-    public boolean createShiftForManagers(List<Employee> list,Schedule result) {
-        Employee previousWorker = new Employee("Comparison",new Position("Non"),0,200);
+    public boolean createShiftForManagers(EmployeeList list,Schedule result) {
         int iterate = 0;
         int empID = 100;
         IntegerWrapper integer = new IntegerWrapper(empID);
@@ -139,7 +140,7 @@ public class ShiftGenerator {
             }
             iterate++;
         } while (iterate < 7);
-        for (Employee emp: list) {
+        for (Employee emp: list.getListEmployee()) {
             fillInShifts(emp, result);
         }
         return true;
@@ -188,16 +189,16 @@ public class ShiftGenerator {
      * MODIFIES: list and result
      * EFFECTS: create shift for all staffs in the list.
      */
-    public boolean createShiftForStaffs(List<Employee> list,Schedule result) {
+    public boolean createShiftForStaffs(EmployeeList list,Schedule result) {
 
-        if (!assignShifts(list, result, 1)) {
+        if (!assignShifts(list.getListEmployee(), result, 1)) {
             return false;
         }
-        if (!assignShifts(list, result, 3)) {
+        if (!assignShifts(list.getListEmployee(), result, 3)) {
             return false;
         }
 
-        for (Employee emp: list) {
+        for (Employee emp: list.getListEmployee()) {
             fillInShifts(emp, result);
         }
 
@@ -292,10 +293,10 @@ public class ShiftGenerator {
 
     //MODIFIES: listByPosition
     //EFFECTS: create new list by position
-    public void assignMemberToList(List<Employee> originalList, List<Employee> listByPosition, int positionID) {
-        for (Employee employee: originalList) {
+    public void assignMemberToList(EmployeeList originalList, EmployeeList listByPosition, int positionID) {
+        for (Employee employee: originalList.getListEmployee()) {
             if (employee.getPositionID() == positionID) {
-                listByPosition.add(employee);
+                listByPosition.addEmployee(employee);
             }
         }
     }
