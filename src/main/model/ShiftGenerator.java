@@ -102,6 +102,7 @@ public class ShiftGenerator {
                 return true;
             }
         }
+        System.out.println("Fail this point");
         return false;
     }
 
@@ -121,6 +122,7 @@ public class ShiftGenerator {
                 return true;
             }
         }
+        System.out.println("Fail this point");
         return false;
     }
 
@@ -132,6 +134,7 @@ public class ShiftGenerator {
         int empID = 100;
         IntegerWrapper integer = new IntegerWrapper(empID);
         do {
+
             if (!assignShift1(list,result,integer,iterate)) {
                 return false;
             }
@@ -159,6 +162,7 @@ public class ShiftGenerator {
         emp.addWorkTime(7.0);
         return temp;
     }
+
 
     //REQUIRES: 1 or 3
     //MODIFIES: result

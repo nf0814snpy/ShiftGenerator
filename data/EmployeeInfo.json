@@ -724,5 +724,23 @@
             }
         ],
         "idealWorkTime": 40
+    },
+    {
+        "positionName": "Supervisor",
+        "empID": 25,
+        "name": "Someone",
+        "availability": [{
+            "dayOfWeek": "Sunday",
+            "startTime": 8,
+            "endTime": 22
+        }],
+        "idealWorkTime": 20
+    },
+    {
+        "positionName": "Supervisor",
+        "empID": 25,
+        "name": "asgas",
+        "availability": [],
+        "idealWorkTime": 30
     }
 ]}

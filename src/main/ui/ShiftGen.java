@@ -63,7 +63,7 @@ public class ShiftGen {
     // EFFECTS: processes user command
     private void processCommand(int command) {
         if (command == 1) {
-            generateShift();
+            generateShift(empList);
         } else if (command == 2) {
             addEmp();
         } else if (command == 3) {
@@ -205,12 +205,15 @@ public class ShiftGen {
 
     // MODIFIES: this
     // EFFECTS: generates shifts based on employee availability
-    private void generateShift() {
+    private void generateShift(EmployeeList empList) {
         ShiftGenerator generator = new ShiftGenerator();
         Schedule shiftSchedule = new Schedule();
         if (generator.shiftGen(empList, shiftSchedule)) {
             System.out.println("Assign shift correctly!");
             printSchedule(shiftSchedule);
+            saveEmpInfo(empList);
+            loadEmpInfo();
+            System.out.println("Auto Save and Loaded");
         } else {
             System.out.println("Shift Assign Fail! Hire more people.");
         }
