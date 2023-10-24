@@ -10,7 +10,7 @@ public class Shift {
     int dateNum;
     Employee assignedEmployee;
 
-
+    // EFFECTS: constructs a shift with the given start time, end time, assigned employee, and date number
     public Shift(double startTime,double endTime,Employee assignedEmployee, int dateNum) {
         this.startTime = startTime;
         this.endTime = endTime;

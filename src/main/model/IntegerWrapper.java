@@ -6,6 +6,7 @@ package model;
 class IntegerWrapper {
     private int value;
 
+    // EFFECTS: constructs an IntegerWrapper with the given initial value
     public IntegerWrapper(int value) {
         this.value = value;
     }
@@ -14,6 +15,8 @@ class IntegerWrapper {
         return value;
     }
 
+    // MODIFIES: this
+    // EFFECTS: sets the value of this IntegerWrapper to the given value
     public void setValue(int value) {
         this.value = value;
     }

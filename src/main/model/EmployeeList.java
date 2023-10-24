@@ -7,11 +7,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
-
+// This class represents a list of employees.
 public class EmployeeList implements Writable {
 
     private List<Employee> empList;
 
+    // EFFECTS: constructs an empty list of employees
     public EmployeeList() {
         empList = new ArrayList<>();
     }
@@ -28,6 +29,9 @@ public class EmployeeList implements Writable {
         return empList;
     }
 
+    /*
+     * EFFECTS: return objects(employee) as json object
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -35,7 +39,7 @@ public class EmployeeList implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns employee in this list as a JSON array
     private JSONArray employeesToJson() {
         JSONArray jsonArray = new JSONArray();
 

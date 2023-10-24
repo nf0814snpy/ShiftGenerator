@@ -47,8 +47,8 @@ public class JsonReader {
         return empList;
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
+    // MODIFIES: empList
+    // EFFECTS: parses employees from a JSON object and adds them to the EmployeeList
     private void addEmployees(EmployeeList empList, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("employees");
         for (Object json : jsonArray) {
@@ -57,8 +57,8 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // MODIFIES: empList
+    // EFFECTS: parses an employee from a JSON object and adds it to the EmployeeList
     private void addEmp(EmployeeList empList, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         Position pos = new Position(jsonObject.getString("positionName"));
@@ -73,6 +73,8 @@ public class JsonReader {
         empList.addEmployee(emp);
     }
 
+    // MODIFIES: emp
+    // EFFECTS: parses an availability day from a JSON object and adds it to the employee's availability
     private void addAvailability(Employee emp, JSONObject jsonObject) {
         String dayOfWeek = jsonObject.getString("dayOfWeek");
         double startTime = jsonObject.getDouble("startTime");

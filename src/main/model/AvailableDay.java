@@ -63,6 +63,9 @@ public class AvailableDay implements Writable {
         return numOfDay;
     }
 
+    /*
+     * EFFECTS: return objects as json object
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

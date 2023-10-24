@@ -5,6 +5,7 @@ import persistence.*;
 
 import java.util.*;
 
+// Represents the Shift Generation application
 public class ShiftGen {
     private static final String JSON_STORE = "./data/EmployeeInfo.json";
     private Scanner input;
@@ -12,7 +13,8 @@ public class ShiftGen {
     private JsonReader jsonReader;
     private EmployeeList empList;
 
-    // EFFECTS: constructs workroom and runs application
+    // MODIFIES: this
+    // EFFECTS: constructs the ShiftGen application
     public ShiftGen() {
         input = new Scanner(System.in);
         empList = new EmployeeList();
@@ -22,7 +24,7 @@ public class ShiftGen {
     }
 
     // MODIFIES: this
-    // EFFECTS: processes user input
+    // EFFECTS: processes user input and runs the application
     private void runEmpList() {
         boolean keepGoing = true;
         int command;
@@ -81,6 +83,8 @@ public class ShiftGen {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: deletes an availability from an employee
     private void deleteAvaToEmp() {
         System.out.println("Enter the number of employee who you want to delete availability:");
         seeEmpName();
@@ -100,6 +104,8 @@ public class ShiftGen {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds an availability to an employee
     private void addAvaToEmp() {
         if (empList.getListEmployee().size() != 0) {
             System.out.println("Enter the number of employee who you want to add availability:");
@@ -122,6 +128,8 @@ public class ShiftGen {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: deletes an employee from the list
     private void deleteEmp() {
         System.out.println("Enter the number to delete employee:");
         seeEmpName();
@@ -134,6 +142,7 @@ public class ShiftGen {
         }
     }
 
+    // EFFECTS: displays the names of employees
     private void seeEmpName() {
         if (empList.getListEmployee().size() == 0) {
             System.out.println("Employee list is empty.");
@@ -145,6 +154,8 @@ public class ShiftGen {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: displays availability information of an employee
     private void seeEmpInfo() {
         if (empList.getListEmployee().size() == 0) {
             System.out.println("Employee list is empty.");
@@ -164,6 +175,7 @@ public class ShiftGen {
         }
     }
 
+    // EFFECTS: displays availability information of an employee
     private void showAvailability(Employee emp) {
         System.out.println(emp.getName());
         for (AvailableDay ava: emp.getAvailability().getListAvailability()) {
@@ -171,7 +183,8 @@ public class ShiftGen {
         }
     }
 
-
+    // MODIFIES: this
+    // EFFECTS: adds a new employee to the list
     private void addEmp() {
         System.out.println("Name :");
         Scanner myObj = new Scanner(System.in);
@@ -190,6 +203,8 @@ public class ShiftGen {
         empList.addEmployee(newEmp);
     }
 
+    // MODIFIES: this
+    // EFFECTS: generates shifts based on employee availability
     private void generateShift() {
         ShiftGenerator generator = new ShiftGenerator();
         Schedule shiftSchedule = new Schedule();
@@ -201,6 +216,7 @@ public class ShiftGen {
         }
     }
 
+    // EFFECTS: prints the schedule of shifts
     public static void printSchedule(Schedule sche) {
         List<Shift> list = sche.getShifts();
         Collections.sort(list, new Comparator<Shift>() {
@@ -218,6 +234,7 @@ public class ShiftGen {
         }
     }
 
+    // EFFECTS: prints information about a single shift
     public static void printShift(Shift shift) {
         String[] daysOfWeek = { "Sun", "Mon", "Tue", "Wen", "Thurs", "Fri", "Sat" };
         String date = daysOfWeek[shift.getDateNum()];

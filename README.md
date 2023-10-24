@@ -21,3 +21,5 @@ The desired functionality was to ensure that individuals with less-than-ideal wo
 -As a user, I want to **add the availability** of each employee.
 -As a user, I want to **see the details** about employees.
 -As a user, I want to **create a shift** by analysing availability.
+-As a user, I want to **load the info** about employees(including availability).
+-As a user, I want to **save the info** about employee(including availability).

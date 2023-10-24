@@ -74,6 +74,9 @@ public class Employee implements Writable {
         return availability;
     }
 
+    /*
+     * EFFECTS: return objects as json object
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -85,7 +88,7 @@ public class Employee implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns employee in this employee list as a JSON array
     private JSONArray availabilityToJson() {
         JSONArray jsonArray = new JSONArray();
 

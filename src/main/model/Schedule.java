@@ -8,14 +8,18 @@ import java.util.*;
 public class Schedule {
     List<Shift> shift;
 
+    // EFFECTS: constructs an empty schedule
     public Schedule() {
         shift = new ArrayList<>();
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds a new shift to the schedule
     public void addShift(Shift newShift) {
         shift.add(newShift);
     }
 
+    // EFFECTS: returns the list of shifts in the schedule
     public List<Shift> getShifts() {
         return shift;
     }

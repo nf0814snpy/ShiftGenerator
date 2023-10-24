@@ -9,6 +9,9 @@ import java.util.*;
 public class Availability {
     private List<AvailableDay> availability;
 
+    /*
+     * MODIFIES: this
+     */
     public Availability() {
         availability = new ArrayList<>();
     }
