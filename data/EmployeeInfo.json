@@ -49,37 +49,37 @@
         "availability": [
             {
                 "dayOfWeek": "Sunday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Monday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Tuesday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Wednesday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Thursday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Friday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Saturday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             }
         ],
@@ -135,37 +135,37 @@
         "availability": [
             {
                 "dayOfWeek": "Sunday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Monday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Tuesday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Wednesday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Thursday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Friday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Saturday",
-                "startTime": 8,
+                "startTime": 15,
                 "endTime": 22
             }
         ],
@@ -727,20 +727,13 @@
     },
     {
         "positionName": "Supervisor",
-        "empID": 25,
-        "name": "Someone",
+        "empID": 300,
+        "name": "Taylor Swift",
         "availability": [{
             "dayOfWeek": "Sunday",
-            "startTime": 8,
+            "startTime": 10,
             "endTime": 22
         }],
         "idealWorkTime": 20
-    },
-    {
-        "positionName": "Supervisor",
-        "empID": 25,
-        "name": "asgas",
-        "availability": [],
-        "idealWorkTime": 30
     }
 ]}

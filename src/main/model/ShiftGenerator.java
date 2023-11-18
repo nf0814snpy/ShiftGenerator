@@ -102,7 +102,6 @@ public class ShiftGenerator {
                 return true;
             }
         }
-        System.out.println("Fail this point");
         return false;
     }
 
