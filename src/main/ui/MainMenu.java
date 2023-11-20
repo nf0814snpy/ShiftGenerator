@@ -21,6 +21,16 @@ import java.awt.Component;
 import java.awt.Toolkit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
+/**
+ * The MainMenu class displays the main menu of the application and handles user interactions.
+ * Various functionalities are available in the main menu, and each function triggers corresponding
+ * actions or processes.
+ * This class uses Swing to construct the GUI and processes user input through event listeners.
+ * Key features of the application, as well as the display and editing of data, are managed in this class.
+ * Responses to user actions such as menu item selection or button clicks are handled by calling appropriate methods
+ * through event handlers or action listeners.
+ */
 @SuppressWarnings("methodlength")
 public class MainMenu extends JFrame {
 
@@ -81,8 +91,12 @@ public class MainMenu extends JFrame {
 
         JMenuItem menuitem1 = new JMenuItem("Load Information");
         JMenuItem menuitem2 = new JMenuItem("Save Information");
+
         radioButtonPanel = new JPanel();
 
+
+        // MODIFIES: The state of shiftGen and any internal variables related to employee information.
+        // EFFECTS: Loads employee information using shiftGen, triggering a reload of the UI.
         menuitem1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,6 +105,9 @@ public class MainMenu extends JFrame {
             }
         });
 
+
+        // MODIFIES: The state of shiftGen by saving employee information based on shiftGen's employee list.
+        // EFFECTS: Initiates the process of saving employee information using shiftGen.
         menuitem2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,10 +131,10 @@ public class MainMenu extends JFrame {
         TableModel  model = new MyTableModel();
         table.setModel(model);
         TableColumn column = table.getColumnModel().getColumn(0);
-        column.setPreferredWidth(200); // Adjust the width as needed
+        column.setPreferredWidth(200);
         for (int i = 1;i < 8;i++) {
             TableColumn column1 = table.getColumnModel().getColumn(i);
-            column1.setPreferredWidth(200); // Adjust the width as needed
+            column1.setPreferredWidth(200);
         }
         scrollPane = new JScrollPane(table);
         scrollPane.setPreferredSize(new Dimension(700, 400));
@@ -139,6 +156,11 @@ public class MainMenu extends JFrame {
         addEmp = new JButton("Add Employee");
         deleteEmp = new JButton("Delete Employee");
 
+
+        // REQUIRES: The employee list must not be empty.
+        // MODIFIES: The employee list and, potentially, the state of the frame.
+        // EFFECTS: If the employee list is empty, displays an error message using a JOptionPane.
+        //          Otherwise, initiates the process to delete the selected employee.
         deleteEmp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -155,6 +177,13 @@ public class MainMenu extends JFrame {
             }
         });
 
+        //REQUIRES: The shiftGen object must be initialized and have a valid employee list.
+        //MODIFIES: The employee list in the shiftGen object and, potentially, the state of the frame.
+        //EFFECTS: Initiates the process of adding a new employee to the system.
+        //Displays a dialog with input fields for the employee's name, position, ideal work hours, and employee ID.
+        // Upon clicking the OK button, validates the input, creates a new employee, adds it to the employee list,
+        //disposes of the dialog, and triggers a reload of the frame to reflect the updated employee list.
+        //Displays an error message if the input is invalid (e.g., duplicate employee ID or empty name).
         addEmp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -173,7 +202,7 @@ public class MainMenu extends JFrame {
                 JLabel empIDLabel = new JLabel("Employee ID:");
                 JTextField empIDField = new JTextField();
 
-                // Add components to the dialog
+
                 inputDialog.add(nameLabel);
                 inputDialog.add(nameField);
                 inputDialog.add(positionLabel);
@@ -184,7 +213,19 @@ public class MainMenu extends JFrame {
                 inputDialog.add(empIDField);
 
                 JButton okButton = new JButton("OK");
+
+                //REQUIRES: The shiftGen object must be initialized and have a valid employee list.
+                //MODIFIES: The employee list in the shiftGen object and, potentially, the state of the frame.
+                //EFFECTS: Retrieves input values for the new employee from the dialog's fields.
+                //           Validates the name and employee ID to ensure they are unique and not empty.
+                //           If validation passes, creates a new Employee object with the input values,
+                //           adds it to the employee list, disposes of the dialog, and triggers a reload
+                //           of the frame
+                //           to reflect the updated employee list.
+                //           Displays an error message if the input is invalid (e.g., duplicate employee ID or
+                //           empty name).
                 okButton.addActionListener(new ActionListener() {
+
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         String name = nameField.getText();
@@ -236,9 +277,19 @@ public class MainMenu extends JFrame {
         seeInfo = new JButton("See Employee Info");
 
         seeInfo.addActionListener(new ActionListener() {
+
+            //REQUIRES: The shiftGen object must be initialized, and there should be at least one employee
+            // in the employee list.
+            //            The buttons variable should be a valid ButtonGroup.
+            // MODIFIES: The state of the infoDialog, info, empName, idealTime, position, tempID, and
+            //             availabilities variables.
+            //EFFECTS: Displays detailed information about the selected employee, including their name, ideal work time,
+            //           position, employee ID, and availabilities.
+            //           Allows the user to add or delete availabilities for the selected employee through a dialog.
+            //           Handles error cases where there are no employees or no employee is selected.
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (shiftGen.getEmpList().getListEmployee().size() == 0) {
+                if (shiftGen.getEmpList().getListEmployee().size() == 0 || buttons.getSelection() == null) {
                     JPanel panel = new JPanel();
                     JLabel label = new JLabel(new ImageIcon("./data/error.gif"));
                     panel.add(label);
@@ -294,6 +345,15 @@ public class MainMenu extends JFrame {
                     deleteAvailability = new JButton("Delete Availability");
 
                     addAvailability.addActionListener(new ActionListener() {
+
+                        //REQUIRES: The frame variable should reference the main application frame.
+                        //MODIFIES: The state of the inputDialog, dateComboBox, startTimeField, endTimeField, empl
+                        // oyee, and availabilities variables.
+                        //EFFECTS: Displays a dialog allowing the user to input availability details for a new
+                        //          day of the week.
+                        //           Removes any existing availability for the selected day of the week.
+                        //           Adds the new availability to the employee's availability list and updates
+                        //             the availabilities display.
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             JDialog inputDialog = new JDialog(frame, "Add Availability", true);
@@ -345,6 +405,11 @@ public class MainMenu extends JFrame {
 
 
                     deleteAvailability.addActionListener(new ActionListener() {
+
+                        // REQUIRES: The deleteAvail() method should be defined to handle
+                        // the deletion of selected availability.
+                        //MODIFIES: The state of the employee and availabilities variables.
+                        //EFFECTS: Calls the deleteAvail() method to handle the deletion of selected availability.
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             deleteAvail();
@@ -378,6 +443,10 @@ public class MainMenu extends JFrame {
         frame.setVisible(true);
     }
 
+
+    //REQUIRES: Atomic integer id to be provided to update the employee ID.
+    //MODIFIES: The state of empName, idealTime, position, id, and ava variables.
+    //EFFECTS: Updates the employee details and availability based on the selected employee's information.
     private Availability positionAssign(AtomicInteger id, Availability ava) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].isSelected()) {
@@ -409,6 +478,8 @@ public class MainMenu extends JFrame {
         return ava;
     }
 
+    //MODIFIES: Updates the employee's availability by removing the selected day.
+    // EFFECTS: Calls the checkDate method to determine which availability to delete.
     private void deleteAvail() {
         String selectedEmployeeName = "";
         for (int i = 0; i < employee.getAvailability().getListAvailability().size(); i++) {
@@ -421,6 +492,10 @@ public class MainMenu extends JFrame {
         checkDate(availabilities, strFirstThree, iterator);
     }
 
+    //REQUIRES: availabilities array, a day abbreviation (strFirstThree),
+    // and an iterator for the employee's availability.
+    //MODIFIES: Updates the employee's availability by removing the days that match the selected day.
+    //EFFECTS: Calls the avaMatchesDay method to determine which days to remove from the availability.
     private void checkDate(JRadioButton[] availabilities, String strFirstThree, Iterator<AvailableDay> iterator) {
         List<AvailableDay> daysToRemove = new ArrayList<>();
 
@@ -438,11 +513,17 @@ public class MainMenu extends JFrame {
         this.availabilities = reloadAva(employee, availabilities, empName, position, tempID);
     }
 
+    // REQUIRES: availabilities array, a day abbreviation (strFirstThree),
+    // and an iterator for the employee's availability.
+    // MODIFIES: Updates the employee's availability by removing the days that match the selected day.
+    // EFFECTS: Calls the avaMatchesDay method to determine which days to remove from the availability.
     private boolean avaMatchesDay(AvailableDay ava, String dayAbbreviation) {
         int dayIndex = getDayIndex(dayAbbreviation);
         return ava.getNumOfDate() == dayIndex;
     }
 
+    // REQUIRES: a valid day abbreviation (e.g., "Sun", "Mon").
+    // EFFECTS: Returns the corresponding index (0 for "Sun", 1 for "Mon", ..., 6 for "Sat").
     private int getDayIndex(String dayAbbreviation) {
         switch (dayAbbreviation) {
             case "Sun":
@@ -464,6 +545,8 @@ public class MainMenu extends JFrame {
         }
     }
 
+    // REQUIRES: a valid name.
+    // EFFECTS: Returns the Employee object with the matching name, or null if not found.
     private Employee getEmp(String name) {
         List<Employee> list = shiftGen.getEmpList().getListEmployee();
         for (Employee emp: list) {
@@ -474,6 +557,8 @@ public class MainMenu extends JFrame {
         return null;
     }
 
+    // REQUIRES: a valid number representing a day (0 to 6).
+    // EFFECTS: Returns the day of the week as a String.
     private String numToDate(int num) {
         if (num == 0) {
             return "Sunday";
@@ -492,6 +577,8 @@ public class MainMenu extends JFrame {
         }
     }
 
+    // REQUIRES: a non-null name and a valid employee list.
+    // EFFECTS: Returns true if the name is not found in the list; otherwise, returns false.
     private boolean checkName(String name,EmployeeList list) {
         List<Employee> temp = list.getListEmployee();
         boolean result = true;
@@ -503,6 +590,8 @@ public class MainMenu extends JFrame {
         return result;
     }
 
+    // REQUIRES: a valid ID and a valid employee list.
+    // EFFECTS: Returns true if the ID is not found in the list; otherwise, returns false.
     private boolean checkID(int id,EmployeeList list) {
         List<Employee> temp = list.getListEmployee();
         boolean result = true;
@@ -516,6 +605,7 @@ public class MainMenu extends JFrame {
         return result;
     }
 
+    //EFFECTS: Updates the employee list, radio buttons, and related GUI components.
     private void reload() {
         List<Employee> emplist = shiftGen.getEmpList().getListEmployee();
         int sizeOfList = emplist.size();
@@ -545,6 +635,7 @@ public class MainMenu extends JFrame {
 
     }
 
+    //EFFECTS: Updates the list, radio buttons, and related GUI components.
     private JRadioButton[] reloadAva(Employee emp,JRadioButton[] availabilities,
                                      String empName,String position, String tempID) {
         List<AvailableDay> ava = emp.getAvailability().getListAvailability();
@@ -564,13 +655,13 @@ public class MainMenu extends JFrame {
             line += String.valueOf(ava.get(i).getEndTime());
             newAvailabilities[i] = new JRadioButton(line);
             buttonGroup.add(newAvailabilities[i]);
-            avaButtonsPanel.add(newAvailabilities[i]);  // Add to the new panel
+            avaButtonsPanel.add(newAvailabilities[i]);
         }
 
-        // Remove this line to avoid unnecessary removal of components
+
         info.removeAll();
 
-        // Add the components to the main info panel
+
         JLabel name = new JLabel("Name: " + empName);
         info.add(Box.createRigidArea(new Dimension(0, 10)));
         JLabel pos = new JLabel("Position: " + position);
@@ -583,10 +674,10 @@ public class MainMenu extends JFrame {
         info.add(empID);
         info.add(availability);
 
-        // Add the new panel with radio buttons to the main info panel
+
         info.add(avaButtonsPanel);
 
-        // The rest of your code remains the sam
+
         info.add(avaButtons, BorderLayout.SOUTH);
 
         infoDialog.revalidate();
@@ -594,18 +685,20 @@ public class MainMenu extends JFrame {
         return newAvailabilities;
     }
 
+    //EFFECTS: call MainMenu constructor to start app
     public static void main(String[] args) {
-        // Create an instance of MainMenu
+
         new MainMenu();
     }
 
-    // Method to generate new data and update the table
+    //REQUIRE:name != null && list != null
+    //EFFECTS: true if the name is not found in the list; otherwise, returns false.
     public void generateNewData() {
 
         if (shiftGen.generateShift(shiftGen.getEmpList())) {
             List<Employee> empList = shiftGen.getEmpList().getListEmployee();
             dataValues = new String[empList.size()][8];
-            // Set the column widths as needed
+
             for (int i = 0; i < empList.size(); i++) {
                 dataValues[i][0] = empList.get(i).getName();
             }
@@ -625,10 +718,10 @@ public class MainMenu extends JFrame {
             MyTableModel newModel = new MyTableModel();
             table.setModel(newModel);
             TableColumn column = table.getColumnModel().getColumn(0);
-            column.setPreferredWidth(200); // Adjust the width as needed
+            column.setPreferredWidth(200);
             for (int i = 1;i < 8;i++) {
                 TableColumn column1 = table.getColumnModel().getColumn(i);
-                column1.setPreferredWidth(150); // Adjust the width as needed
+                column1.setPreferredWidth(150);
             }
             shiftGen.saveEmpInfo(shiftGen.getEmpList());
             shiftGen.loadEmpInfo();
@@ -639,16 +732,19 @@ public class MainMenu extends JFrame {
         }
     }
 
+    //EFFECTS: find a row which matches the name
     public int findRow(String[][] data, String name) {
         int sizeOfRow = data.length;
         for (int i = 0; i < sizeOfRow; i++) {
             if (data[i][0].equals(name)) {
-                return i;  // Found the row with the specified name
+                return i;
             }
         }
         return -1;
     }
 
+    //MODIFIES: employees
+    //EFFECTS: delete employee from the list
     private void deleteSelectedEmployee() {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].isSelected()) {
@@ -670,7 +766,7 @@ public class MainMenu extends JFrame {
                 "Please select an employee to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
     }
 
-
+    //EFFECTS: construct table for generator
     public class MyTableModel extends DefaultTableModel {
 
         MyTableModel() {
