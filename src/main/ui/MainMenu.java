@@ -18,6 +18,7 @@ import javax.swing.table.*;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Component;
+import java.awt.Toolkit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainMenu extends JFrame {
@@ -45,10 +46,12 @@ public class MainMenu extends JFrame {
     private JPanel radioButtonPanelAva;
     private JPanel avaButtons;
     private JDialog infoDialog;
+    private JDialog errorDialog;
+    private JPanel errorPanel;
     private Employee employee;
     private JPanel info;
-
     private String empName;
+    private String idealTime;
     private String position;
     private String tempID;
     private JRadioButton[] availabilities;
@@ -113,10 +116,10 @@ public class MainMenu extends JFrame {
         column.setPreferredWidth(200); // Adjust the width as needed
         for (int i = 1;i < 8;i++) {
             TableColumn column1 = table.getColumnModel().getColumn(i);
-            column1.setPreferredWidth(150); // Adjust the width as needed
+            column1.setPreferredWidth(200); // Adjust the width as needed
         }
         scrollPane = new JScrollPane(table);
-        scrollPane.setPreferredSize(new Dimension(600, 400));
+        scrollPane.setPreferredSize(new Dimension(700, 400));
 
         scrollPane1 = new JScrollPane(button);
 
@@ -139,7 +142,12 @@ public class MainMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (shiftGen.getEmpList().getListEmployee().size() == 0) {
-                    JOptionPane.showMessageDialog(MainMenu.this, "There is no one to delete!", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JPanel panel = new JPanel();
+                    JLabel label = new JLabel(new ImageIcon("./data/error.gif"));
+                    panel.add(label);
+
+                    int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error", JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.PLAIN_MESSAGE, null, new Object[]{}, null);
                 } else {
                     deleteSelectedEmployee();
                 }
@@ -191,14 +199,21 @@ public class MainMenu extends JFrame {
                                 inputDialog.dispose();
                                 reload();
                             } else {
-                                JOptionPane.showMessageDialog(MainMenu.this,
-                                        "There is a person who has same ID", "Warning",
-                                        JOptionPane.WARNING_MESSAGE);
+                                JPanel panel = new JPanel();
+                                JLabel label = new JLabel(new ImageIcon("./data/error2.gif"));
+                                panel.add(label);
+
+                                int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error", JOptionPane.DEFAULT_OPTION,
+                                        JOptionPane.PLAIN_MESSAGE, null, new Object[]{}, null);
                             }
 
                         }  else {
-                            JOptionPane.showMessageDialog(MainMenu.this,
-                                    "There is already same person", "Warning", JOptionPane.WARNING_MESSAGE);
+                            JPanel panel = new JPanel();
+                            JLabel label = new JLabel(new ImageIcon("./data/error3.gif"));
+                            panel.add(label);
+
+                            int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error", JOptionPane.DEFAULT_OPTION,
+                                    JOptionPane.PLAIN_MESSAGE, null, new Object[]{}, null);
                         }
                     }
 
@@ -221,11 +236,17 @@ public class MainMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (shiftGen.getEmpList().getListEmployee().size() == 0) {
-                    JOptionPane.showMessageDialog(MainMenu.this, "There is no one to show!", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JPanel panel = new JPanel();
+                    JLabel label = new JLabel(new ImageIcon("./data/error.gif"));
+                    panel.add(label);
+
+                    int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error", JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.PLAIN_MESSAGE, null, new Object[]{}, null);
                 } else {
                     infoDialog = new JDialog(frame, "Employee Information", true);
                     info = new JPanel();
                     empName = "";
+                    idealTime = "";
                     position = "";
                     AtomicInteger id = new AtomicInteger(-1);
 
@@ -236,6 +257,8 @@ public class MainMenu extends JFrame {
                     tempID = String.valueOf(id);
                     JLabel name = new JLabel("Name: " + empName);
                     info.add(Box.createRigidArea(new Dimension(0, 10)));
+                    JLabel idealWork = new JLabel("Ideal Work Time: " + idealTime);
+                    info.add(Box.createRigidArea(new Dimension(0, 10)));
                     JLabel pos = new JLabel("Position: " + position);
                     info.add(Box.createRigidArea(new Dimension(0, 10)));
                     JLabel empID = new JLabel("ID: " + tempID);
@@ -243,6 +266,7 @@ public class MainMenu extends JFrame {
                     JLabel availability = new JLabel("Availabilities:");
                     info.add(name);
                     info.add(pos);
+                    info.add(idealWork);
                     info.add(empID);
                     info.add(availability);
                     infoDialog.add(info, BorderLayout.NORTH);
@@ -360,6 +384,7 @@ public class MainMenu extends JFrame {
                     employee = iterator.next();
                     if (employee.getName().equals(selectedEmployeeName)) {
                         empName = employee.getName();
+                        idealTime = String.valueOf(employee.getIdealWorkTime());
                         if (employee.getPositionID() == 0) {
                             position = "Manager";
                         } else if (employee.getPositionID() == 1) {
