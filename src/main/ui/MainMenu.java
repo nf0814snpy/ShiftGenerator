@@ -21,6 +21,7 @@ import java.awt.Component;
 import java.awt.Toolkit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@SuppressWarnings("methodlength")
 public class MainMenu extends JFrame {
 
     private JPanel empInfo;
@@ -203,7 +204,8 @@ public class MainMenu extends JFrame {
                                 JLabel label = new JLabel(new ImageIcon("./data/error2.gif"));
                                 panel.add(label);
 
-                                int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error", JOptionPane.DEFAULT_OPTION,
+                                int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error",
+                                        JOptionPane.DEFAULT_OPTION,
                                         JOptionPane.PLAIN_MESSAGE, null, new Object[]{}, null);
                             }
 
@@ -212,7 +214,8 @@ public class MainMenu extends JFrame {
                             JLabel label = new JLabel(new ImageIcon("./data/error3.gif"));
                             panel.add(label);
 
-                            int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error", JOptionPane.DEFAULT_OPTION,
+                            int result = JOptionPane.showOptionDialog(frame, panel, "Delete Error",
+                                    JOptionPane.DEFAULT_OPTION,
                                     JOptionPane.PLAIN_MESSAGE, null, new Object[]{}, null);
                         }
                     }
@@ -321,7 +324,8 @@ public class MainMenu extends JFrame {
                                     double endTime = Double.parseDouble(endTimeField.getText());
                                     int index;
                                     for (int i = 0;i < employee.getAvailability().getListAvailability().size();i++) {
-                                        if (employee.getAvailability().getListAvailability().get(i).getDayOfWeek().equals(dayOfweek)) {
+                                        if (employee.getAvailability().getListAvailability().get(i).getDayOfWeek()
+                                                .equals(dayOfweek)) {
                                             employee.getAvailability().getListAvailability().remove(i);
                                         }
                                     }
@@ -541,7 +545,8 @@ public class MainMenu extends JFrame {
 
     }
 
-    private JRadioButton[] reloadAva(Employee emp,JRadioButton[] availabilities,String empName,String position, String tempID) {
+    private JRadioButton[] reloadAva(Employee emp,JRadioButton[] availabilities,
+                                     String empName,String position, String tempID) {
         List<AvailableDay> ava = emp.getAvailability().getListAvailability();
         int sizeOfList = ava.size();
         JPanel avaButtonsPanel = new JPanel();
@@ -629,7 +634,8 @@ public class MainMenu extends JFrame {
             shiftGen.loadEmpInfo();
             System.out.println("Auto Save and Loaded");
         } else {
-            JOptionPane.showMessageDialog(MainMenu.this, "Not enough employees to generate shifts!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(MainMenu.this,
+                    "Not enough employees to generate shifts!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -660,7 +666,8 @@ public class MainMenu extends JFrame {
                 return;
             }
         }
-        JOptionPane.showMessageDialog(MainMenu.this, "Please select an employee to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(MainMenu.this,
+                "Please select an employee to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
     }
 
 
