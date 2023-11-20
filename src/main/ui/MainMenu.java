@@ -664,6 +664,8 @@ public class MainMenu extends JFrame {
 
         JLabel name = new JLabel("Name: " + empName);
         info.add(Box.createRigidArea(new Dimension(0, 10)));
+        JLabel idealWork = new JLabel("Ideal Work Time: " + idealTime);
+        info.add(Box.createRigidArea(new Dimension(0, 10)));
         JLabel pos = new JLabel("Position: " + position);
         info.add(Box.createRigidArea(new Dimension(0, 10)));
         JLabel empID = new JLabel("ID: " + tempID);
@@ -671,6 +673,7 @@ public class MainMenu extends JFrame {
         JLabel availability = new JLabel("Availabilities:");
         info.add(name);
         info.add(pos);
+        info.add(idealWork);
         info.add(empID);
         info.add(availability);
 
