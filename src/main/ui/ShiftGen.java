@@ -20,7 +20,7 @@ public class ShiftGen {
         empList = new EmployeeList();
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-        runEmpList();
+        //runEmpList();
     }
 
     // MODIFIES: this
@@ -205,7 +205,7 @@ public class ShiftGen {
 
     // MODIFIES: this
     // EFFECTS: generates shifts based on employee availability
-    private void generateShift(EmployeeList empList) {
+    public boolean generateShift(EmployeeList empList) {
         ShiftGenerator generator = new ShiftGenerator();
         Schedule shiftSchedule = new Schedule();
         if (generator.shiftGen(empList, shiftSchedule)) {
@@ -214,8 +214,9 @@ public class ShiftGen {
             saveEmpInfo(empList);
             loadEmpInfo();
             System.out.println("Auto Save and Loaded");
+            return true;
         } else {
-            System.out.println("Shift Assign Fail! Hire more people.");
+            return false;
         }
     }
 
@@ -248,7 +249,7 @@ public class ShiftGen {
 
 
         // EFFECTS: saves the workroom to file
-    private void saveEmpInfo(EmployeeList empList) {
+    public void saveEmpInfo(EmployeeList empList) {
         try {
             jsonWriter.open();
             jsonWriter.write(empList);
@@ -262,13 +263,17 @@ public class ShiftGen {
 
     // MODIFIES: this
     // EFFECTS: loads workroom from file
-    private void loadEmpInfo() {
+    public void loadEmpInfo() {
         try {
             empList = jsonReader.read();
             System.out.println("Loaded employee information from " + JSON_STORE);
         } catch (Exception e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
+    }
+
+    public EmployeeList getEmpList() {
+        return empList;
     }
 
 }

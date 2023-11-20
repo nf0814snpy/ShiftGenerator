@@ -49,37 +49,37 @@
         "availability": [
             {
                 "dayOfWeek": "Sunday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Monday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Tuesday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Wednesday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Thursday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Friday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Saturday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             }
         ],
@@ -135,37 +135,37 @@
         "availability": [
             {
                 "dayOfWeek": "Sunday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Monday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Tuesday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Wednesday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Thursday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Friday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             },
             {
                 "dayOfWeek": "Saturday",
-                "startTime": 15,
+                "startTime": 8,
                 "endTime": 22
             }
         ],
@@ -684,7 +684,7 @@
     },
     {
         "positionName": "Service Assistant",
-        "empID": 17,
+        "empID": 42,
         "name": "Employee12",
         "availability": [
             {
@@ -726,14 +726,46 @@
         "idealWorkTime": 40
     },
     {
-        "positionName": "Supervisor",
-        "empID": 300,
-        "name": "Taylor Swift",
-        "availability": [{
-            "dayOfWeek": "Sunday",
-            "startTime": 10,
-            "endTime": 22
-        }],
+        "positionName": "Service Assistant",
+        "empID": 43,
+        "name": "Employee13",
+        "availability": [
+            {
+                "dayOfWeek": "Sunday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Monday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Tuesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Wednesday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Thursday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Friday",
+                "startTime": 8,
+                "endTime": 22
+            },
+            {
+                "dayOfWeek": "Saturday",
+                "startTime": 8,
+                "endTime": 22
+            }
+        ],
         "idealWorkTime": 20
     }
 ]}

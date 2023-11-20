@@ -14,8 +14,8 @@ public class Main {
     private JsonReader jsonReader;
 
     // EFFECTS: runs the main application
-//    public static void main(String[] args) {
-//        new ShiftGen();
-//    }
+    public static void main(String[] args) {
+        new ShiftGen();
+    }
 
 }
