@@ -418,32 +418,45 @@ public class MainMenu extends JFrame {
     }
 
     private void checkDate(JRadioButton[] availabilities, String strFirstThree, Iterator<AvailableDay> iterator) {
+        List<AvailableDay> daysToRemove = new ArrayList<>();
+
         while (iterator.hasNext()) {
             AvailableDay ava = iterator.next();
-            if (strFirstThree.equals("Sun") && ava.getNumOfDate() == 0) {
-                iterator.remove();
-                reloadAva(employee, availabilities, empName, position, tempID);
-            } else if (strFirstThree.equals("Mon") && ava.getNumOfDate() == 1) {
-                iterator.remove();
-                reloadAva(employee, availabilities, empName, position, tempID);
-            } else if (strFirstThree.equals("Tue") && ava.getNumOfDate() == 2) {
-                iterator.remove();
-                reloadAva(employee, availabilities, empName, position, tempID);
-            } else if (strFirstThree.equals("Wed") && ava.getNumOfDate() == 3) {
-                iterator.remove();
-                reloadAva(employee, availabilities, empName, position, tempID);
-            } else if (strFirstThree.equals("Thu") && ava.getNumOfDate() == 4) {
-                iterator.remove();
-                reloadAva(employee, availabilities, empName, position, tempID);
-            } else if (strFirstThree.equals("Fri") && ava.getNumOfDate() == 5) {
-                iterator.remove();
-                reloadAva(employee, availabilities, empName, position, tempID);
-            } else if (strFirstThree.equals("Sat") && ava.getNumOfDate() == 6) {
-                iterator.remove();
-                reloadAva(employee, availabilities, empName, position, tempID);
-            } else {
-                //nothing
+            if (avaMatchesDay(ava, strFirstThree)) {
+                daysToRemove.add(ava);
             }
+        }
+
+
+        employee.getAvailability().getListAvailability().removeAll(daysToRemove);
+
+
+        this.availabilities = reloadAva(employee, availabilities, empName, position, tempID);
+    }
+
+    private boolean avaMatchesDay(AvailableDay ava, String dayAbbreviation) {
+        int dayIndex = getDayIndex(dayAbbreviation);
+        return ava.getNumOfDate() == dayIndex;
+    }
+
+    private int getDayIndex(String dayAbbreviation) {
+        switch (dayAbbreviation) {
+            case "Sun":
+                return 0;
+            case "Mon":
+                return 1;
+            case "Tue":
+                return 2;
+            case "Wed":
+                return 3;
+            case "Thu":
+                return 4;
+            case "Fri":
+                return 5;
+            case "Sat":
+                return 6;
+            default:
+                return -1;
         }
     }
 
