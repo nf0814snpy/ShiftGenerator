@@ -719,48 +719,5 @@
             }
         ],
         "idealWorkTime": 40
-    },
-    {
-        "positionName": "Service Assistant",
-        "empID": 43,
-        "name": "Employee13",
-        "availability": [
-            {
-                "dayOfWeek": "Sunday",
-                "startTime": 8,
-                "endTime": 22
-            },
-            {
-                "dayOfWeek": "Monday",
-                "startTime": 8,
-                "endTime": 22
-            },
-            {
-                "dayOfWeek": "Tuesday",
-                "startTime": 15,
-                "endTime": 22
-            },
-            {
-                "dayOfWeek": "Wednesday",
-                "startTime": 8,
-                "endTime": 22
-            },
-            {
-                "dayOfWeek": "Thursday",
-                "startTime": 15,
-                "endTime": 22
-            },
-            {
-                "dayOfWeek": "Friday",
-                "startTime": 15,
-                "endTime": 22
-            },
-            {
-                "dayOfWeek": "Saturday",
-                "startTime": 15,
-                "endTime": 22
-            }
-        ],
-        "idealWorkTime": 20
     }
 ]}

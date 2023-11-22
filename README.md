@@ -23,3 +23,17 @@ The desired functionality was to ensure that individuals with less-than-ideal wo
 -As a user, I want to **create a shift** by analysing availability.
 -As a user, I want to **load the info** about employees(including availability).
 -As a user, I want to **save the info** about employee(including availability).
+
+# Instructions for Grader
+- To add multiple employees to employee list, you can add from Employee Information by pushing add 
+  Employee button and enter informations.
+- To add availabilities to employee, you can select employee and click the "See Employee Info", then
+  you can click "Add Availability" and enter required infomation.\\
+- You can see the details about employees by selecting corresponding employee and clicking "See Employee Information".
+- To generate shift, in the generate shift tab, you can click the "Generate" button.
+- You can save and load employees infomation from file pull down.
+- For the visual component, if you try to delete employee when we don't have any employees,
+  this app indicates error with image file.(There is some error image pop up)
+  
+
+- 
