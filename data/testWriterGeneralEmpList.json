@@ -1,0 +1,33 @@
+{"employees": [{
+    "positionName": "Manager",
+    "empID": 1,
+    "name": "Nana Fujita",
+    "availability": [
+        {
+            "dayOfWeek": "Sunday",
+            "startTime": 8,
+            "endTime": 22
+        },
+        {
+            "dayOfWeek": "Monday",
+            "startTime": 8,
+            "endTime": 22
+        },
+        {
+            "dayOfWeek": "Tuesday",
+            "startTime": 9,
+            "endTime": 10
+        },
+        {
+            "dayOfWeek": "Wednesday",
+            "startTime": 8,
+            "endTime": 22
+        },
+        {
+            "dayOfWeek": "Thursday",
+            "startTime": 8,
+            "endTime": 22
+        }
+    ],
+    "idealWorkTime": 40
+}]}
