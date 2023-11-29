@@ -280,7 +280,7 @@ public class ShiftGen {
             empList = jsonReader.readLog();
             //System.out.println("Loaded employee information from " + JSON_STORE);
         } catch (Exception e) {
-            //System.out.println("Unable to read from file: " + JSON_STORE);
+            //System.out.println("Unable to read from file: " + JSON_STORE);//
         }
     }
 
