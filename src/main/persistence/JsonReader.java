@@ -27,6 +27,18 @@ public class JsonReader {
         return parseEmpList(jsonObject);
     }
 
+    public EmployeeList readLog() throws IOException {
+        String jsonData = readFile(source);
+        JSONObject jsonObject = new JSONObject(jsonData);
+
+        EventLog eventLog = EventLog.getInstance();
+        String logMessage = "Data loaded";
+        Event logEvent = new Event(logMessage);
+        eventLog.logEvent(logEvent);
+
+        return parseEmpList(jsonObject);
+    }
+
     // EFFECTS: reads source file as string and returns it
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();

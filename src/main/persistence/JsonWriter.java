@@ -30,6 +30,18 @@ public class JsonWriter {
     public void write(EmployeeList el) {
         JSONObject json = el.toJson();
         saveToFile(json.toString(TAB));
+
+    }
+
+    public void writeLog(EmployeeList el) {
+        JSONObject json = el.toJson();
+        saveToFile(json.toString(TAB));
+
+        EventLog eventLog = EventLog.getInstance();
+        String logMessage = "Data saved";
+        Event logEvent = new Event(logMessage);
+        eventLog.logEvent(logEvent);
+
     }
 
     // MODIFIES: this

@@ -251,13 +251,9 @@ public class ShiftGen {
     public void saveEmpInfo(EmployeeList empList) {
         try {
             jsonWriter.open();
-            jsonWriter.write(empList);
+            jsonWriter.writeLog(empList);
             jsonWriter.close();
 
-            EventLog eventLog = EventLog.getInstance();
-            String logMessage = "Data saved to " + JSON_STORE;
-            Event logEvent = new Event(logMessage);
-            eventLog.logEvent(logEvent);
         } catch (Exception ex) {
             //
         }
@@ -281,11 +277,7 @@ public class ShiftGen {
     // EFFECTS: loads workroom from file
     public void loadEmpInfo() {
         try {
-            empList = jsonReader.read();
-            EventLog eventLog = EventLog.getInstance();
-            String logMessage = "Data loaded from " + JSON_STORE;
-            Event logEvent = new Event(logMessage);
-            eventLog.logEvent(logEvent);
+            empList = jsonReader.readLog();
             //System.out.println("Loaded employee information from " + JSON_STORE);
         } catch (Exception e) {
             //System.out.println("Unable to read from file: " + JSON_STORE);
