@@ -23,6 +23,24 @@ public class EmployeeList implements Writable {
      */
     public void addEmployee(Employee emp) {
         empList.add(emp);
+
+        EventLog eventLog = EventLog.getInstance();
+        String logMessage = "Employee added: " + emp.getName() + " (ID: " + emp.getID() + ", Position: "
+                + emp.getPosition().getPositionName() + ", Ideal Work Time: " + emp.getIdealWorkTime() + ")";
+        Event logEvent = new Event(logMessage);
+        eventLog.logEvent(logEvent);
+    }
+
+    public void addEmployeeForLoad(Employee emp) {
+        empList.add(emp);
+    }
+
+    public void removeLog(Employee emp) {
+        EventLog eventLog = EventLog.getInstance();
+        String logMessage = "Employee removed: " + emp.getName()  + " (ID: " + emp.getID() + ", Position: "
+                + emp.getPosition().getPositionName() + ", Ideal Work Time: " + emp.getIdealWorkTime() + ")";;
+        Event logEvent = new Event(logMessage);
+        eventLog.logEvent(logEvent);
     }
 
     public List<Employee> getListEmployee() {

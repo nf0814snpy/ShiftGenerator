@@ -35,5 +35,12 @@ The desired functionality was to ensure that individuals with less-than-ideal wo
 - For the visual component, if you try to delete employee when we don't have any employees,
   this app indicates error with image file.(There is some error image pop up)
   
-
-- 
+# Phase 4: Task 2
+- Employee added: Someone (ID: 3, Position: Manager, Ideal Work Time: 20.0)
+- AvailableDay added for employee Someone Sunday 8.0 - 22.0
+  AvailableDay added for employee Someone Monday 15.0 - 22.0
+  AvailableDay added for employee Someone Wednesday 8.0 - 22.0
+- Availability removed: Someone Monday 15.0 - 22.0
+- -Employee removed: Someone (ID: 3, Position: Manager, Ideal Work Time: 20.0)
+- Data loaded from ./data/EmployeeInfo.json
+- Data saved to ./data/EmployeeInfo.json

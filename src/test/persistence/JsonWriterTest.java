@@ -48,11 +48,11 @@ public class JsonWriterTest {
             AvailableDay ava4 = new AvailableDay("Tuesday",9.0,10.0);
             AvailableDay ava5 = new AvailableDay("Wednesday",8.0,22.0);
             AvailableDay ava6 = new AvailableDay("Thursday",8.0,22.0);
-            emp1.getAvailability().addDay(ava1);
-            emp1.getAvailability().addDay(ava3);
-            emp1.getAvailability().addDay(ava4);
-            emp1.getAvailability().addDay(ava5);
-            emp1.getAvailability().addDay(ava6);
+            emp1.getAvailability().addDay(ava1,emp1);
+            emp1.getAvailability().addDay(ava3,emp1);
+            emp1.getAvailability().addDay(ava4,emp1);
+            emp1.getAvailability().addDay(ava5,emp1);
+            emp1.getAvailability().addDay(ava6,emp1);
             empList.addEmployee(emp1);
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralEmpList.json");
             writer.open();

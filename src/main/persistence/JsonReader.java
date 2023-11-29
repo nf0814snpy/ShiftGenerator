@@ -34,7 +34,7 @@ public class JsonReader {
         try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
             stream.forEach(s -> contentBuilder.append(s));
         } catch (Exception ex) {
-            System.out.println("Exception catched");
+            //
         }
 
         return contentBuilder.toString();
@@ -70,7 +70,7 @@ public class JsonReader {
             JSONObject nextAvailability = (JSONObject) json;
             addAvailability(emp, nextAvailability);
         }
-        empList.addEmployee(emp);
+        empList.addEmployeeForLoad(emp);
     }
 
     // MODIFIES: emp
@@ -80,6 +80,6 @@ public class JsonReader {
         double startTime = jsonObject.getDouble("startTime");
         double endTime = jsonObject.getDouble("endTime");
         AvailableDay avaDay = new AvailableDay(dayOfWeek,startTime,endTime);
-        emp.getAvailability().addDay(avaDay);
+        emp.getAvailability().addDayForLoad(avaDay,emp);
     }
 }

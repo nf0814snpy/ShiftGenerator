@@ -12,7 +12,7 @@ public class AvailabilityTest {
     private AvailableDay ava5;
     private AvailableDay ava6;
     private AvailableDay ava7;
-
+    private Employee emp1;
     private Availability avail;
 
     @BeforeEach
@@ -25,6 +25,7 @@ public class AvailabilityTest {
         ava6 = new AvailableDay("Friday",17.0,22.0);
         ava7 = new AvailableDay("Saturday",15.0,22.0);
         avail = new Availability();
+        emp1 = new Employee("Nana Fujita",new Position("Service Assistant"),20.0,1);
     }
 
     @Test
@@ -34,7 +35,7 @@ public class AvailabilityTest {
 
     @Test
     void testAddSingleAvailability(){
-        avail.addDay(ava1);
+        avail.addDay(ava1,emp1);
         assertEquals(1,avail.getListAvailability().size());
         assertEquals(0,avail.getListAvailability().get(0).getNumOfDate());
         assertEquals(8.0,avail.getListAvailability().get(0).getStartTime());
@@ -43,9 +44,10 @@ public class AvailabilityTest {
 
     @Test
     void testAddMultipleAvailability(){
-        avail.addDay(ava1);
-        avail.addDay(ava2);
-        avail.addDay(ava3);
+        avail.addDay(ava1,emp1);
+        avail.addDayForLoad(ava2,emp1);
+        avail.addDay(ava3,emp1);
+        avail.removeAvaLog(ava1,emp1);
         assertEquals(3,avail.getListAvailability().size());
         assertEquals(0,avail.getListAvailability().get(0).getNumOfDate());
         assertEquals(8.0,avail.getListAvailability().get(0).getStartTime());

@@ -122,7 +122,8 @@ public class ShiftGen {
             System.out.println("Enter end time(if 21:30am, enter 21.5):");
             double end = input.nextDouble();
             AvailableDay newAva = new AvailableDay(dayOfWeek, start, end);
-            empList.getListEmployee().get(num - 1).getAvailability().addDay(newAva);
+            empList.getListEmployee().get(num - 1)
+                    .getAvailability().addDay(newAva,empList.getListEmployee().get(num - 1));
         } else {
             System.out.println("List is empty");
         }
@@ -209,11 +210,9 @@ public class ShiftGen {
         ShiftGenerator generator = new ShiftGenerator();
         Schedule shiftSchedule = new Schedule();
         if (generator.shiftGen(empList, shiftSchedule)) {
-            System.out.println("Assign shift correctly!");
             printSchedule(shiftSchedule);
-            saveEmpInfo(empList);
-            loadEmpInfo();
-            System.out.println("Auto Save and Loaded");
+            saveEmpInfoNoLog(empList);
+            loadEmpInfoNoLog();
             return true;
         } else {
             return false;
@@ -243,8 +242,8 @@ public class ShiftGen {
         String[] daysOfWeek = { "Sun", "Mon", "Tue", "Wen", "Thurs", "Fri", "Sat" };
         String date = daysOfWeek[shift.getDateNum()];
 
-        System.out.println(date + shift.getStartTime() + " - "
-                + shift.getEndTime() + " " + shift.getEmployee().getName());
+//        System.out.println(date + shift.getStartTime() + " - "
+//                + shift.getEndTime() + " " + shift.getEmployee().getName());
     }
 
 
@@ -254,9 +253,26 @@ public class ShiftGen {
             jsonWriter.open();
             jsonWriter.write(empList);
             jsonWriter.close();
-            System.out.println("Saved employee information" + " to " + JSON_STORE);
+
+            EventLog eventLog = EventLog.getInstance();
+            String logMessage = "Data saved to " + JSON_STORE;
+            Event logEvent = new Event(logMessage);
+            eventLog.logEvent(logEvent);
         } catch (Exception ex) {
-            System.out.println("Catch Exception");
+            //
+        }
+
+    }
+
+    // EFFECTS: saves the workroom to file
+    public void saveEmpInfoNoLog(EmployeeList empList) {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(empList);
+            jsonWriter.close();
+
+        } catch (Exception ex) {
+            //
         }
 
     }
@@ -266,9 +282,25 @@ public class ShiftGen {
     public void loadEmpInfo() {
         try {
             empList = jsonReader.read();
-            System.out.println("Loaded employee information from " + JSON_STORE);
+            EventLog eventLog = EventLog.getInstance();
+            String logMessage = "Data loaded from " + JSON_STORE;
+            Event logEvent = new Event(logMessage);
+            eventLog.logEvent(logEvent);
+            //System.out.println("Loaded employee information from " + JSON_STORE);
         } catch (Exception e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
+            //System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    public void loadEmpInfoNoLog() {
+        try {
+            empList = jsonReader.read();
+
+            //System.out.println("Loaded employee information from " + JSON_STORE);
+        } catch (Exception e) {
+            //System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

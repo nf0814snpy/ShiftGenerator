@@ -13,13 +13,15 @@ public class ShiftGenerator {
         assignMemberToList(listOfEmployee,managerAndSuper,1);
         assignMemberToList(listOfEmployee,sa,2);
         if (!createShiftForManagers(managerAndSuper,result)) {
-            System.out.println("Fail manager.");
+
             return false;
         }
         if (!createShiftForStaffs(sa,result)) {
-            System.out.println("Fail staff.");
+
             return false;
         }
+
+
         return true;
     }
 
@@ -121,7 +123,6 @@ public class ShiftGenerator {
                 return true;
             }
         }
-        System.out.println("Fail this point");
         return false;
     }
 
@@ -299,7 +300,7 @@ public class ShiftGenerator {
     public void assignMemberToList(EmployeeList originalList, EmployeeList listByPosition, int positionID) {
         for (Employee employee: originalList.getListEmployee()) {
             if (employee.getPositionID() == positionID) {
-                listByPosition.addEmployee(employee);
+                listByPosition.addEmployeeForLoad(employee);
             }
         }
     }

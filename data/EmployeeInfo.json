@@ -719,5 +719,12 @@
             }
         ],
         "idealWorkTime": 40
+    },
+    {
+        "positionName": "Service Assistant",
+        "empID": 55,
+        "name": "Employee13",
+        "availability": [],
+        "idealWorkTime": 5
     }
 ]}

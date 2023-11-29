@@ -35,6 +35,11 @@ public class EmployeeTest {
     }
 
     @Test
+    void testGetPosition() {
+        assertEquals("Service Assistant", emp1.getPosition().getPositionName());
+    }
+
+    @Test
     void testAddSingleWorkTimeBoundary() {
         assertFalse(emp1.isWorkEnough(0));
         emp1.addWorkTime(20.0);

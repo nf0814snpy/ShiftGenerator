@@ -50,13 +50,13 @@ public class ShiftGeneratorTest {
         AvailableDay ava6 = new AvailableDay("Friday",8.0,22.0);
         AvailableDay ava7 = new AvailableDay("Saturday",8.0,22.0);
         for(Employee emp: empList.getListEmployee()) {
-            emp.getAvailability().addDay(ava1);
-            emp.getAvailability().addDay(ava2);
-            emp.getAvailability().addDay(ava3);
-            emp.getAvailability().addDay(ava4);
-            emp.getAvailability().addDay(ava5);
-            emp.getAvailability().addDay(ava6);
-            emp.getAvailability().addDay(ava7);
+            emp.getAvailability().addDay(ava1, emp);
+            emp.getAvailability().addDay(ava2, emp);
+            emp.getAvailability().addDay(ava3, emp);
+            emp.getAvailability().addDay(ava4, emp);
+            emp.getAvailability().addDay(ava5, emp);
+            emp.getAvailability().addDay(ava6, emp);
+            emp.getAvailability().addDay(ava7, emp);
         }
         assertFalse(generator.shiftGen(empList,sche));
     }
@@ -88,8 +88,8 @@ public class ShiftGeneratorTest {
         empList.addEmployee(sup1);
         empList.addEmployee(sup2);
         empList.addEmployee(sup3);
-        empList.addEmployee(emp1);
-        empList.addEmployee(emp2);
+        empList.addEmployeeForLoad(emp1);
+        empList.addEmployeeForLoad(emp2);
         empList.addEmployee(emp3);
         empList.addEmployee(emp4);
         empList.addEmployee(emp5);
@@ -109,13 +109,13 @@ public class ShiftGeneratorTest {
         AvailableDay ava6 = new AvailableDay("Friday",8.0,22.0);
         AvailableDay ava7 = new AvailableDay("Saturday",8.0,22.0);
         for(Employee emp: empList.getListEmployee()) {
-            emp.getAvailability().addDay(ava1);
-            emp.getAvailability().addDay(ava2);
-            emp.getAvailability().addDay(ava3);
-            emp.getAvailability().addDay(ava4);
-            emp.getAvailability().addDay(ava5);
-            emp.getAvailability().addDay(ava6);
-            emp.getAvailability().addDay(ava7);
+            emp.getAvailability().addDay(ava1, emp);
+            emp.getAvailability().addDay(ava2, emp);
+            emp.getAvailability().addDay(ava3, emp);
+            emp.getAvailability().addDay(ava4, emp);
+            emp.getAvailability().addDay(ava5, emp);
+            emp.getAvailability().addDay(ava6, emp);
+            emp.getAvailability().addDay(ava7, emp);
         }
         assertTrue(generator.shiftGen(empList,sche));
     }
@@ -157,16 +157,16 @@ public class ShiftGeneratorTest {
         AvailableDay ava1 = new AvailableDay("Sunday",8.0,22.0);
         Employee emp2 = new Employee("Sarah",new Position("Supervisor"),30.0,2);
         AvailableDay ava2 = new AvailableDay("Sunday",12.0,13.0);
-        emp1.getAvailability().addDay(ava1);
+        emp1.getAvailability().addDay(ava1, emp1);
         assertFalse(generator.isAbleToAssignShift(emp1,10,shiftNum));
         assertTrue(emp1.getAvailability().getListAvailability().get(0).getStartTime() <= 8.0);
         assertTrue(emp1.getAvailability().getListAvailability().get(0).getEndTime() >= 15.0);
         assertTrue(generator.isAbleToAssignShift(emp1,0,1));
-        emp2.getAvailability().addDay(ava2);
+        emp2.getAvailability().addDay(ava2, emp2);
         assertFalse(generator.isAbleToAssignShift(emp2,0,shiftNum));
         Employee emp3 = new Employee("Sarah",new Position("Supervisor"),0.0,3);
         AvailableDay ava3 = new AvailableDay("Sunday",8.0,22.0);
-        emp3.getAvailability().addDay(ava3);
+        emp3.getAvailability().addDay(ava3, emp3);
         assertFalse(generator.isAbleToAssignShift(emp3,0,shiftNum));
     }
 
@@ -179,17 +179,17 @@ public class ShiftGeneratorTest {
         Employee emp3 = new Employee("Hansel",new Position("Supervisor"),5.0,3);
         empList.addEmployee(emp1);
         AvailableDay temp = new AvailableDay("Sunday",8.0, 22.0);
-        emp1.getAvailability().addDay(temp);
+        emp1.getAvailability().addDay(temp,emp1);
         assertTrue(generator.assignShift1(empList,sche,new IntegerWrapper(2),0));
         EmployeeList empList2 = new EmployeeList();
         empList2.addEmployee(emp2);
         AvailableDay temp2 = new AvailableDay("Sunday",8.0, 22.0);
-        emp2.getAvailability().addDay(temp2);
+        emp2.getAvailability().addDay(temp2,emp2);
         assertFalse(generator.assignShift1(empList2,sche,new IntegerWrapper(2),0));
         EmployeeList empList3 = new EmployeeList();
         empList3.addEmployee(emp3);
         AvailableDay temp3 = new AvailableDay("Sunday",9.0, 10.0);
-        emp2.getAvailability().addDay(temp3);
+        emp2.getAvailability().addDay(temp3,emp2);
         assertFalse(generator.assignShift1(empList3,sche,new IntegerWrapper(2),0));
     }
 
@@ -202,17 +202,17 @@ public class ShiftGeneratorTest {
         Employee emp3 = new Employee("Hansel",new Position("Supervisor"),5.0,3);
         empList.addEmployee(emp1);
         AvailableDay temp = new AvailableDay("Sunday",8.0, 22.0);
-        emp1.getAvailability().addDay(temp);
+        emp1.getAvailability().addDay(temp,emp1);
         assertTrue(generator.assignShift3(empList,sche,new IntegerWrapper(2),0));
         EmployeeList empList2 = new EmployeeList();
         empList2.addEmployee(emp2);
         AvailableDay temp2 = new AvailableDay("Sunday",8.0, 22.0);
-        emp2.getAvailability().addDay(temp2);
+        emp2.getAvailability().addDay(temp2,emp2);
         assertFalse(generator.assignShift3(empList2,sche,new IntegerWrapper(2),0));
         EmployeeList empList3 = new EmployeeList();
         empList3.addEmployee(emp3);
         AvailableDay temp3 = new AvailableDay("Sunday",9.0, 10.0);
-        emp2.getAvailability().addDay(temp3);
+        emp2.getAvailability().addDay(temp3,emp2);
         assertFalse(generator.assignShift3(empList3,sche,new IntegerWrapper(2),0));
 
     }
@@ -290,15 +290,15 @@ public class ShiftGeneratorTest {
             AvailableDay ava4 = new AvailableDay("Tuesday",9.0,10.0);
             AvailableDay ava5 = new AvailableDay("Wednesday",8.0,22.0);
             AvailableDay ava6 = new AvailableDay("Thursday",8.0,22.0);
-            emp1.getAvailability().addDay(ava1);
-            emp1.getAvailability().addDay(ava3);
-            emp1.getAvailability().addDay(ava4);
-            emp1.getAvailability().addDay(ava5);
-            emp1.getAvailability().addDay(ava6);
+            emp1.getAvailability().addDay(ava1,emp1);
+            emp1.getAvailability().addDay(ava3,emp1);
+            emp1.getAvailability().addDay(ava4,emp1);
+            emp1.getAvailability().addDay(ava5,emp1);
+            emp1.getAvailability().addDay(ava6,emp1);
             Employee emp2 = new Employee("Jepa",new Position("Manager"),20.0,2);
             sche.getShifts().add(new Shift(8.0,15.0,emp1,3));
             AvailableDay ava2 = new AvailableDay("Sunday",8.0,22.0);
-            emp1.getAvailability().addDay(ava2);
+            emp1.getAvailability().addDay(ava2,emp1);
             sche.getShifts().add(new Shift(8.0,15.0,emp2,1));
             sche.getShifts().add(new Shift(8.0,15.0,emp2,1));
             sche.getShifts().add(new Shift(8.0,15.0,emp2,1));
@@ -420,13 +420,13 @@ public class ShiftGeneratorTest {
         AvailableDay ava7 = new AvailableDay("Saturday",8.0,22.0);
 
         for(Employee emp: listEmp) {
-            emp.getAvailability().addDay(ava1);
-            emp.getAvailability().addDay(ava2);
-            emp.getAvailability().addDay(ava3);
-            emp.getAvailability().addDay(ava4);
-            emp.getAvailability().addDay(ava5);
-            emp.getAvailability().addDay(ava6);
-            emp.getAvailability().addDay(ava7);
+            emp.getAvailability().addDay(ava1,emp);
+            emp.getAvailability().addDay(ava2,emp);
+            emp.getAvailability().addDay(ava3,emp);
+            emp.getAvailability().addDay(ava4,emp);
+            emp.getAvailability().addDay(ava5,emp);
+            emp.getAvailability().addDay(ava6,emp);
+            emp.getAvailability().addDay(ava7,emp);
         }
         boolean resultTrue= generator.assignShifts(listEmp, sche, 1);
         assertTrue(resultTrue);
@@ -473,13 +473,13 @@ public class ShiftGeneratorTest {
         assertFalse(generator.createShiftForStaffs(listEmp,sche));
 
         for(Employee emp: listEmp.getListEmployee()) {
-            emp.getAvailability().addDay(ava1);
-            emp.getAvailability().addDay(ava2);
-            emp.getAvailability().addDay(ava3);
-            emp.getAvailability().addDay(ava4);
-            emp.getAvailability().addDay(ava5);
-            emp.getAvailability().addDay(ava6);
-            emp.getAvailability().addDay(ava7);
+            emp.getAvailability().addDay(ava1,emp);
+            emp.getAvailability().addDay(ava2,emp);
+            emp.getAvailability().addDay(ava3,emp);
+            emp.getAvailability().addDay(ava4,emp);
+            emp.getAvailability().addDay(ava5,emp);
+            emp.getAvailability().addDay(ava6,emp);
+            emp.getAvailability().addDay(ava7,emp);
         }
         assertFalse(generator.createShiftForStaffs(listEmp,sche));
 
@@ -524,13 +524,13 @@ public class ShiftGeneratorTest {
 
 
         for(Employee emp: listEmp.getListEmployee()) {
-            emp.getAvailability().addDay(ava1);
-            emp.getAvailability().addDay(ava2);
-            emp.getAvailability().addDay(ava3);
-            emp.getAvailability().addDay(ava4);
-            emp.getAvailability().addDay(ava5);
-            emp.getAvailability().addDay(ava6);
-            emp.getAvailability().addDay(ava7);
+            emp.getAvailability().addDay(ava1,emp);
+            emp.getAvailability().addDay(ava2,emp);
+            emp.getAvailability().addDay(ava3,emp);
+            emp.getAvailability().addDay(ava4,emp);
+            emp.getAvailability().addDay(ava5,emp);
+            emp.getAvailability().addDay(ava6,emp);
+            emp.getAvailability().addDay(ava7,emp);
         }
         assertTrue(generator.createShiftForStaffs(listEmp,sche));
 
@@ -570,13 +570,13 @@ public class ShiftGeneratorTest {
 
 
         for(Employee emp: listEmp.getListEmployee()) {
-            emp.getAvailability().addDay(ava1);
-            emp.getAvailability().addDay(ava2);
-            emp.getAvailability().addDay(ava3);
-            emp.getAvailability().addDay(ava4);
-            emp.getAvailability().addDay(ava5);
-            emp.getAvailability().addDay(ava6);
-            emp.getAvailability().addDay(ava7);
+            emp.getAvailability().addDay(ava1,emp);
+            emp.getAvailability().addDay(ava2,emp);
+            emp.getAvailability().addDay(ava3,emp);
+            emp.getAvailability().addDay(ava4,emp);
+            emp.getAvailability().addDay(ava5,emp);
+            emp.getAvailability().addDay(ava6,emp);
+            emp.getAvailability().addDay(ava7,emp);
         }
         boolean result2 = generator.createShiftForManagers(listEmp,sche);
         assertFalse(result2);
@@ -614,13 +614,13 @@ public class ShiftGeneratorTest {
 
 
         for(Employee emp: listEmp.getListEmployee()) {
-            emp.getAvailability().addDay(ava1);
-            emp.getAvailability().addDay(ava2);
-            emp.getAvailability().addDay(ava3);
-            emp.getAvailability().addDay(ava4);
-            emp.getAvailability().addDay(ava5);
-            emp.getAvailability().addDay(ava6);
-            emp.getAvailability().addDay(ava7);
+            emp.getAvailability().addDay(ava1,emp);
+            emp.getAvailability().addDay(ava2,emp);
+            emp.getAvailability().addDay(ava3,emp);
+            emp.getAvailability().addDay(ava4,emp);
+            emp.getAvailability().addDay(ava5,emp);
+            emp.getAvailability().addDay(ava6,emp);
+            emp.getAvailability().addDay(ava7,emp);
         }
         boolean result = generator.createShiftForManagers(listEmp,sche);
         assertTrue(result);

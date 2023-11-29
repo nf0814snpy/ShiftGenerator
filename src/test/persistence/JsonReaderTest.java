@@ -1,6 +1,8 @@
 package persistence;
 
 import model.EmployeeList;
+import model.Employee;
+import model.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,6 +48,8 @@ public class JsonReaderTest {
         JsonReader reader = new JsonReader("./data/testWriterGeneralEmpList.json");
         try {
             EmployeeList empList = reader.read();
+            empList.removeLog(new Employee("Nana Fujita"
+                    ,new Position("Service Assistant"),20.0,1));
             assertEquals(1, empList.getListEmployee().size());
         } catch (Exception e) {
             fail("Couldn't read from file");

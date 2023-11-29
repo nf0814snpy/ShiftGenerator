@@ -20,7 +20,8 @@ import java.awt.GridLayout;
 import java.awt.Component;
 import java.awt.Toolkit;
 import java.util.concurrent.atomic.AtomicInteger;
-
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 /**
  * The MainMenu class displays the main menu of the application and handles user interactions.
@@ -83,6 +84,7 @@ public class MainMenu extends JFrame {
             }
         });
 
+        frame.addWindowListener(new AppWindowListener());
         // Create panels
         empInfo = new JPanel();
         generate = new JPanel();
@@ -114,6 +116,7 @@ public class MainMenu extends JFrame {
                 shiftGen.saveEmpInfo(shiftGen.getEmpList());
             }
         });
+
 
 
         menubar.add(menu1);
@@ -390,7 +393,7 @@ public class MainMenu extends JFrame {
                                         }
                                     }
                                     AvailableDay newAvail = new AvailableDay(dayOfweek,startTime,endTime);
-                                    employee.getAvailability().getListAvailability().add(newAvail);
+                                    employee.getAvailability().addDay(newAvail,employee);
                                     availabilities = reloadAva(employee, availabilities, empName, position, tempID);
 
                                 }
@@ -503,6 +506,8 @@ public class MainMenu extends JFrame {
             AvailableDay ava = iterator.next();
             if (avaMatchesDay(ava, strFirstThree)) {
                 daysToRemove.add(ava);
+                employee.getAvailability().removeAvaLog(ava,employee);
+
             }
         }
 
@@ -726,9 +731,8 @@ public class MainMenu extends JFrame {
                 TableColumn column1 = table.getColumnModel().getColumn(i);
                 column1.setPreferredWidth(150);
             }
-            shiftGen.saveEmpInfo(shiftGen.getEmpList());
-            shiftGen.loadEmpInfo();
-            System.out.println("Auto Save and Loaded");
+            shiftGen.saveEmpInfoNoLog(shiftGen.getEmpList());
+            shiftGen.loadEmpInfoNoLog();
         } else {
             JOptionPane.showMessageDialog(MainMenu.this,
                     "Not enough employees to generate shifts!", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -753,11 +757,13 @@ public class MainMenu extends JFrame {
             if (employees[i].isSelected()) {
                 String selectedEmployeeName = employees[i].getText();
 
+                List<Employee> list = shiftGen.getEmpList().getListEmployee();
                 Iterator<Employee> iterator = shiftGen.getEmpList().getListEmployee().iterator();
                 while (iterator.hasNext()) {
                     Employee emp = iterator.next();
                     if (emp.getName().equals(selectedEmployeeName)) {
                         iterator.remove();
+                        shiftGen.getEmpList().removeLog(emp);
                     }
                 }
 

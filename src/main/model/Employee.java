@@ -35,6 +35,10 @@ public class Employee implements Writable {
         return empID;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
     public String getName() {
         return name;
     }
