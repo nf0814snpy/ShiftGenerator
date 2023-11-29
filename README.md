@@ -44,3 +44,10 @@ The desired functionality was to ensure that individuals with less-than-ideal wo
 - -Employee removed: Someone (ID: 3, Position: Manager, Ideal Work Time: 20.0)
 - Data loaded from ./data/EmployeeInfo.json
 - Data saved to ./data/EmployeeInfo.json
+- 
+# Phase 4: Task 3
+- If I had more time, I would combine AvailableDay and Availability. If I combine those classes into one class,
+- It would be able to omit so much lines when it comes to code lines. 
+- Also, I'd like to organize (maybe combine into one class) ShiftGen and MainMenu class. It is because
+  I made shiftGen for phase 1 and MainMenu for phase 3, therefore there is so many similar functions between
+- these two classes and I didn't just have a time to delete some functions and combine them.
