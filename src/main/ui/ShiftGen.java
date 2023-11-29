@@ -81,7 +81,7 @@ public class ShiftGen {
         } else {
             System.out.println("Selection not valid...");
         }
-    } //
+    } ////
 
     // MODIFIES: this
     // EFFECTS: deletes an availability from an employee
